@@ -1,18 +1,20 @@
+// Require Express
 const express = require('express');
-const app = express ();
 
+// Express server handling requests and responses
+const app = express();
+
+// Make everything inside of public/ available
 app.use(express.static('public'));
 
-app.get('/home', (req, res, next) => {
-    res.sendFile(__dirname + '/views/home.html');
-});
+// our first Route:
+app.get('/home', (request, response, next) => response.sendFile(__dirname + '/views/home.html'));
 
-app.get('/about', (req, res, next) => {
-    res.sendFile(__dirname + '/views/about.html');
-});
+// about route:
+app.get('/about', (request, response, next) => response.sendFile(__dirname + '/views/about.html'));
 
-app.get('/works', (req, res, next) => {
-    res.sendFile(__dirname + '/views/works.html');
-});
+// works route:
+app.get('/works', (request, response, next) => response.sendFile(__dirname + '/views/works.html'));
 
+// Server Started
 app.listen(3000, () => console.log('Listening on http://localhost:3000'));
