@@ -15,4 +15,4 @@ app.get('/works', (req, res, next) => {
     res.sendFile(__dirname + '/views/works.html');
 });
 
-app.listen(3000);
+app.listen(3000, () => console.log('Listening on http://localhost:3000'));
